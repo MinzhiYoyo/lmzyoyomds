@@ -1,0 +1,214 @@
+---
+title: 高等数学级数
+date: 2022-10-08 15:15:08.0
+updated: 2023-04-04 17:37:07.42
+url: /archives/gao-deng-shu-xue-ji-shu
+categories: 
+- 考研数学
+tags: 
+- 数学
+- 考研
+- 级数
+- 傅里叶级数
+---
+
+# 一、数项级数
+
+## 1、性质
+
+- $\sum\limits_{n=1}^\infty u_n收敛 \Leftrightarrow \lim\limits_{n\to\infty}S_n存在$（充要条件）
+- $\sum\limits_{n=1}^\infty u_n收敛 \Rightarrow \lim\limits_{n\to\infty}u_n=0$（必要条件）
+- 收敛，可以不看前有限项，因为前有限项是常数
+
+## 2、正项级数（每一项都是正数）
+
+- $S_n有界 \Leftrightarrow \sum\limits_{n=1}^\infty u_n$
+
+- 比较判别法：$对于n \geq M时，有u_n \leq v_n$，
+
+  > - $\sum\limits_{n=1}^\infty v_n 收敛 \Rightarrow \sum\limits_{n=1}^\infty u_n收敛$
+  > - $\sum\limits_{n=1}^\infty u_n 发散 \Rightarrow \sum\limits_{n=1}^\infty v_n 发散$
+
+- 极限比较判别法：$a = \lim\limits_{n \to \infty} \frac{u_n}{v_n}$
+
+  > - $a = 0$：$u_n \leq v_n$（剩下的看上一点）
+  > - $a = \infty$：$u_n \geq v_n$（剩下的看上一点）
+  > - $a = A\neq 0$：$u_n,v_n同敛散$
+  >
+  > 那么，如何选取另一个来比较呢？
+  >
+  > - 等比级数：$\sum\limits_{n=1}^\infty aq^{n-1} \begin{cases} = \frac{a}{1-q},& \left|  q \right| < 1 \\ 发散, & \left| q \right| \geq 1 \end{cases}$
+  > - `p`级数：$\sum\limits_{n=1}^{\infty} \frac{1}{n^p} \begin{cases} 收敛, & p>1\\发散,&p\leq1 \end{cases}$
+  > - 广义`p`级数：$\sum\limits_{n=2}^{\infty} \frac{1}{n(\ln n)^p} \begin{cases}收敛,& p>1\\发散,& p\leq1\end{cases}$
+  > - 交错`p`级数：$\sum\limits_{n=1}^\infty (-1)^{n-1}\frac{1}{n^p} \begin{cases}绝对收敛，& p > 1 \\ 条件收敛，& 0<p\leq1 \end{cases}$
+
+  **下面开始，都是跟自己比较：**
+
+- 比值判别法（达朗贝尔）
+
+  > $\lim\limits_{n \to \infty}\frac{u^{n+1}}{u^n} = \rho \begin{cases} <1,&收敛\\>1,&发散\\=1,&失效 \end{cases}$
+
+- 根值判别法（柯西）
+
+  > $\lim\limits_{n\to\infty}\sqrt[n]{u_n} = \rho \begin{cases} <1,&收敛\\>1,&发散\\=1,&失效 \end{cases}$
+
+- 积分判别法（柯西）
+
+  > $f(x)\geq 0,连续,x\in\left[1,+\infty \right], u_n = f(n)$
+  >
+  > $\sum\limits_{n=1}^\infty u_n 与 \int_1^{+\infty}f(x)dx敛散性相同$
+  >
+  > - 给出反常积分的判敛，与 **自己** 比较（要求积分区域只有一个瑕点）
+  >
+  >   > - 口诀：大的大、小的小、才收敛
+  >   >
+  >   >   > 大（积分区间是$\infty$）的大（$p>1$）
+  >   >   >
+  >   >   > 小（积分区间是有限）的小（$0<p<1$）
+  >   >
+  >   > - 数学表述
+  >   >
+  >   >   > $\int_a^b \frac{1}{(x-a)^p}dx\begin{cases}收敛,& p<1\\ 发散,&p\geq1 \end{cases}$
+  >   >   >
+  >   >   > $\int_a^{+\infty} \frac{1}{x^p} dx \begin{cases}收敛,&p>1\\ 发散,&p\leq 1 \end{cases}$
+  >   
+  > - 给出反常积分，与 **别人** 比较（要求积分区域只有一个瑕点）
+  >
+  >   > - 大的收，小的收；小的散，大的散；同收同散是常数。
+  >   >
+  >   >   > 大的收敛 $\Rightarrow$ 小的收敛
+  >   >   >
+  >   >   > 小的发散 $\Rightarrow$ 大的发散
+  >   >   >
+  >   >   > 还有可能是两个同敛散
+  >   >
+  >   > - 数学表述
+  >   >
+  >   >   > $\lim\limits_{x\rightarrow 瑕点} \frac{f(x)}{g(x)} = A$
+  >   >   >
+  >   >   > $A=0$ ：上面的小，下面的大
+  >   >   >
+  >   >   > $A=\infty$：上面的大，下面的小
+  >   >   >
+  >   >   > $A\neq0$：上下同敛散
+
+## 交错级数
+
+$\sum\limits_{n=1}^\infty (-1)^{n-1}u_n, u_n>0$
+
+- 莱布尼茨判别法：$\begin{cases} \lim\limits_{n\to\infty}u_n=0,\\ u_n\geq u_{n+1}(u_n单调不增) \end{cases} \Rightarrow 级数收敛$
+
+## 任意级数
+
+$\sum\limits_{n=1}^\infty  u_n , u_n无符号限制$
+
+- $\sum\limits_{n=1}^\infty \left| u_n \right|收敛\Rightarrow\sum\limits_{n=1}^\infty u_n 绝对收敛$
+- $\sum\limits_{n=1}^\infty \left| u_n \right|发散，\sum\limits_{n=1}^\infty u_n收敛 \Rightarrow \sum\limits_{n=1}^\infty  u_n 条件收敛$
+
+# 二、幂级数
+
+## 1、性质
+
+### 幂级数定义
+
+$\sum\limits_{n=1}^\infty u_n(x) = \sum\limits_{n=1}^\infty a_n(x-x_0)^n = a_0 + a_1(x-x_0)^1 + a_2(x-x_0)^2 + ... + a_n(x-x_n)^n + ...$
+
+### 收敛域与收敛点
+
+若$x\in I$，有$\sum\limits_{n=1}^\infty u_n(x_0)$收敛，则$x_0$为其收敛点；如果发散，就称为发散点。
+
+收敛点的集合称为收敛域
+
+### 收敛半径，收敛区间和收敛域
+
+- 收敛半径：$R$
+- 收敛区间：$-R<(x-x_0) < R \Rightarrow x_0-R < x < x_0 + R$
+- 收敛域：考虑端点是否能够取得
+
+## 2、具体问题
+
+记录一个知识点，级数缺项：有的项其系数为0（如奇数项级数或者偶数项级）。
+
+- 不缺项幂级数$\sum\limits_{n=0}^\infty a_n(x-x_0)^n$：
+
+  > $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n} \right| = \rho$
+  >
+  > $\rho = \frac{1}{\rho};\quad\rho = 0,R= +\infty;\quad \rho=+\infty,R = 0$
+
+- 缺项幂级数（比如只有奇数项或者偶数项，直接用这个方法即可）：
+
+  > - 令 $\lim\limits_{n\to\infty} \left|\frac{u_{n+1}(x)}{u_n(x)}\right|(或\lim\limits_{n\to\infty} \sqrt[n]{\left| u_n(x) \right|}) < 1$，求出收敛区间$x\in(a,b)$
+  > - 具体讨论端点$a,b$的值，确定收敛域
+
+## 3、抽象问题
+
+假如没有告诉你的级数的具体形式，而是给你抽象的，那就用这个方法。
+
+- 阿贝尔定理，对于级数$\sum\limits_{n=0}^{\infty} a_n(x-x_0)^n$，设收敛半径为$R$，在点$x_1$处有
+
+  > - 收敛，$|x_1-x_0|\leq R$
+  > - 发散，$|x_1-x_0|\geq R$
+  > - **条件收敛**，$R = |x_1-x_0|$，这一条非常重要，另外两条不能确定R，这条可以
+
+- 收敛半径不变化
+
+  > - 对级数提出或乘以$(x-x_0)^k$，或者平移。收敛半径不变化
+  > - 求导，收敛半径不变，收敛域可能缩小
+  > - 积分，收敛半径不变，收敛域可能扩大
+
+## 4、常用公式
+
+至于如何求届收敛域呢？首先就是**第2点中的缺项幂级数**，然后就是根据**定义域**来。双重确定。
+
+下面记住几个基本公式，并且推导出其扩展公式，推导的时候，抓住**收敛半径**不变，确定**端点**（用定义域）的进而确定收敛域范围。还有的情况，求导之后收敛于会变小，积分之后收敛域会变大，如$\ln(1+x)$系。
+
+- $\ln(1+x) = \sum\limits_{n=1}^\infty (-1)^{n-1}\cdot\frac{x^n}{n},\quad x\in(-1,1]$
+
+  > - $\ln(1-x) = -\sum\limits_{n=1}^\infty \frac{x^n}{n},\quad x\in[-1,1)$
+  > - $\frac{1}{1+x} = \sum\limits_{n=0}^\infty (-1)^{n}\cdot x^n,\quad x\in(-1,1)$
+  > - $\frac{1}{1-x} = \sum\limits_{n=0}^\infty  x^n,\quad x\in(-1,1)$，**重点**
+
+- $\arctan x = \sum\limits_{n=0}^\infty (-1)^n \cdot\frac{x^{2n+1}}{2n+1},\quad x\in[-1,1]$
+
+- $e^x = \sum\limits_{n=0}^\infty \frac{x^n}{n!},\quad x\in(-\infty, +\infty)$
+
+  > $e^{-x} = \sum\limits_{n=0}^\infty (-1)^n\frac{x^n}{n!},\quad x\in(-\infty, +\infty)$
+  >
+  > $\frac{e^x+e^{-x}}{2} = \sum\limits_{n=0}^\infty \frac{x^{2n}}{(2n)!},\quad x\in(-\infty, +\infty)$
+  >
+  > $\frac{e^x-e^{-x}}{2} = \sum\limits_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!},\quad x\in(-\infty, +\infty)$
+
+- $\sin x = \sum\limits_{n=0}^\infty (-1)^n\cdot \frac{x^{2n+1}}{(2n+1)!},\quad x\in(-\infty,+\infty)$
+
+  > $\cos x = \sum\limits_{n=0}^\infty (-1)^n\cdot \frac{x^{2n}}{(2n)!},\quad x\in(-\infty,+\infty)$
+
+# 三、傅里叶级数
+
+## 1、迪利克雷收敛定律
+
+$f(x)$的傅里叶级数在$[-l,l]$上处处收敛，其和函数为$S(x)$
+
+$S(x) = \begin{cases} f(x),&x为连续点\\ \frac{f(x-0)+f(x+0)}{2},&x为间断点\\\frac{f(-l+0)+f(l-0)}{2},&x=\pm l \end{cases}$
+
+## 2、傅里叶公式
+
+### 设**周期**为$2l$
+
+$f(x)\sim \frac{a_0}{2} + \sum\limits_{n=1}^\infty \left( a_n\cos \frac{n\pi x}{l} + b_n \sin \frac{n\pi x}{l} \right)$
+
+$\begin{cases}a_0 = \frac{1}{l}\int_{-l}^l f(x) dx \\ a_n = \frac{1}{l}\int_{-l}^l  f(x) \cos \frac{n\pi x}{l} dx,&n=1,2,... \\ b_n = \frac{1}{l}\int_{-l}^l  f(x) \sin \frac{n\pi x}{l} dx,&n=0,1,...  \end{cases}$
+
+- 如果$f(x)$为奇函数，展开式为正弦函数，只有$b$
+- 如果$f(x)$为偶函数，展开式为余弦函数，只有$a$
+
+### 如果只要$[0,l]$有定义
+
+做奇延拓或者偶延拓，即定义另一边的函数，用原函数来定义。
+
+# 四、补充知识
+
+## 如何处理n起点变化
+
+- 口诀：底变大，后变小
+
+  > $\sum\limits_{n=0}^{\infty}f(n) = \sum\limits_{n=1}^{\infty}f(n-1)$ ：也就是说，求和 $\sum$ 符号底部的起点变大了，后面表达式中的所有n都变成n-1了
