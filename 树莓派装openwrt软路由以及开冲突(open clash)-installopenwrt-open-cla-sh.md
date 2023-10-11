@@ -125,14 +125,37 @@ route add default gw 192.168.1.100
 # 更改域名服务器
 vim /etc/resolv.conf
 
-# 在后面添加下列代码
+# 在后面添加下列代码并且注释掉127.0.0.1和::1两行
 nameserver 192.168.1.100  # 这个是笔记本地址
 nameserver 114.114.114.114  # 这个是公共域名解析服务器
+
+# 重新加载/etc/resolv.conf
+. /etc/resolv.conf
 
 # 然后ping baidu.com
 ping baidu.com  # 可以ping通
 
 ```
+
+
+
+### 设置一下代理或换源
+
+&emsp;由于某些原因导致我们不能访问openwrt的官网，因此采取换源的措施
+
+```shell
+# 换清华源
+cd /etc/opkg  # 这里目录下就是你的源地址了
+ls # 目录下有个distfeeds.conf文件
+
+# 建议先备份
+cp distfeeds.conf distfeeds.conf.bak
+
+# 使用清华源
+sed -i 's_https\?://downloads.openwrt.org_https://mirrors.cernet.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
+```
+
+
 
 ### 安装一些软件
 
