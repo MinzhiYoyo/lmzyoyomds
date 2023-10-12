@@ -87,9 +87,41 @@ tags:
 
 ![image-20231010220625653](https://imagere.oss-cn-beijing.aliyuncs.com/img20230227/202310102206699.png)
 
+# 删除默认网桥，改成AP
+
+## 新建好AP
+
+网络->无线，中把WLAN开启
+
+## 更改ssh登录
+
+系统->管理权->ssh访问，中更改成你的WLAN登录
+
+# 一些调试命令
+
+```shell
+route # 查看默认路由表
+
+nload eth0 -m # 查看以太网口实时网速
+
+
+```
+
+
+
 # speedtest
 
 
+
+# 附言
+
+其实整个测试，多拨都没有效果，最后发现电脑网线裸连速度更快
+
+![image-20231011232236290](https://imagere.oss-cn-beijing.aliyuncs.com/img20230227/202310112322388.png)
+
+![image-20231011232242444](https://imagere.oss-cn-beijing.aliyuncs.com/img20230227/202310112322481.png)
+
+![image-20231011232247470](https://imagere.oss-cn-beijing.aliyuncs.com/img20230227/202310112322540.png)
 
 # 参考链接
 
