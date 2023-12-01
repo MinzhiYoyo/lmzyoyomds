@@ -1,13 +1,15 @@
 ---
 title: 数值分析稍微学学
-date: 2023-10-16 16:35:35.0
-updated: 2023-10-16 17:36:57.01
-url: /archives/NumericalAnalysis
+date: 2023-11-30 21:56:37.371
+updated: 2023-11-30 22:09:21.979
+url: /archives/numericalanalysis
 categories: 
 - 数学
 tags: 
 - 数值分析
 ---
+
+
 
 # 前言
 
@@ -429,3 +431,6 @@ $$
 
 
 # 第六章 数值积分
+
+
+
