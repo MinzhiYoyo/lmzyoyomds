@@ -1,52 +1,47 @@
 ---
-title: 考研复试自我介绍
-date: 2023-03-16 20:02:24.81
-updated: 2024-03-21 16:14:31.87
-url: /archives/kao-yan-fu-shi-zi-wo-jie-shao
+title: 考研复试面试笔记
+date: 2024-03-25 09:32:21.125
+updated: 2024-03-25 09:34:51.013
+url: /archives/kao-yan-fu-shi-mian-shi-bi-ji
 categories: 
-- 默认分类
 - 考研
 tags: 
 ---
+
+# 注意
+
+***本文仅限交流讨论，不得出售与贩卖***
+
+***本文仅为复习资料，无任何押题行为，不保证复试面试能取得多少分***
+
+***本文涉及到的内容，纯属虚构***
 
 # 分类讨论
 
 - 姓名，年龄，籍贯，本科学校及专业
 
-- 绩点，高数，C语言，Java，软件设计实践，数电模电，数电实验模电实验
+- 绩点+高分课程
 
 - 技能点：
 
-  > - 编程语言及框架方面：常用，C/C++，Qt，Python，Java，Matlab；了解，HTML CSS JavaScript TypeScript, 微信小程序，lisp函数式编程；安卓开发开始学习
-  > - 平台：STM32单片机，Linux系统包括Ubuntu，centos，树莓派os，Jetson nano；cmake与make编译C++工程
-  > - web方面：学习HTTP请求与响应，网络API调用，网络爬虫，了解网络攻防
+  > - 编程语言及框架方面：C/C++, Java, Spring等等
+  > - 平台：Linux
+  > - web方面：爬虫等
   > - 算法方面：深度、广度优先，递归回溯建枝，动态规划，贪心等常见的几类算法；遗传、粒子群、模拟退火、常用的数学建模算法、OpenCV图像处理等算法。
 
-- 项目与竞赛方面：
+- 项目、竞赛、论文方面：
 
-  > - 无人机项目
-  >
-  >   > - 技能点就是：Linux开发C++工程，Linux服务启动，Linux平台编译工程，图像处理算法，Intel的视觉相机，无人机控制流程与异常处理，交互界面的规范化设计，通信协议的规范化设计。
-  >   > - 创新点是：图像处理中，对于直线的及角度计算，使用的线段和非斜率计算；交互界面的规范化设计。
-  >   > - 评价：这个项目担任队长职位，准备近一年时间，最终也是有望冲击国一，但是因为突发事件导致弃赛，也是一个很大的遗憾。
-  >
-  > - 数学建模方面，参加了国赛与美赛，两次的题目都非常类似，属于那种理财管理的类型
-  >
-  >   > - 职位：担任了编程手，负责将模型编程出来验证
-  >   > - 技能点是：常用数学建模算法，如遗传、粒子群、常见数学建模算法
-  >   > - 评价：除了单纯编程外，还帮助建模手建立了一些辅助的模型，包括预测模型，拟合模型等
+  - 项目1：xxxx
+     > 使用什么什么等等
 
 - 社团工作方面：
-
-  > 担任院科协计算机部的中干与主席，大二中干，大三主席
-  >
-  > 负责工作有：我们院迎新工作，授课工作，管理工作，对接老师的要求与工作
+   - 担任什么
 
 - 自我评价：
 
-  > 有恒心、肯坚持：有两次都快接近保研了，虽然失败了，但还是坚持考研，并在初始中取得比较优异的成绩。
+  > 有恒心、肯坚持：
   >
-  > 热爱学习、学习能力强、学习广泛：这三点应该是我学习中逐步递进的关系，相比于我周围的同学，我觉得我学习涵盖的领域应该是比较广泛的。平常闲暇时候，还会偶尔学习下基础的物理学，数学等知识。我认为学习广泛与学习能力强是一个良性循环，知识都是相通的，学的越多，学的越快。
+  > 热爱学习、学习能力强、学习广泛
 
 - 未来展望：
 
@@ -58,19 +53,19 @@ tags:
 
 # 中文
 
-&emsp;各位老师好，我叫梁敏智，今年21岁，来自于湖南。我本科就读于南京邮电大学电子科学与技术专业。非常高兴参加这次期待已久的面试，以下是我的个人情况。
+&emsp;各位老师好，我叫xxx，今年xx岁，来自于xx。我本科就读于xxx大学xxx专业。非常高兴参加这次期待已久的面试，以下是我的个人情况。
 
-&emsp;在我本科四年期间，我努力学习学校课程，成绩优异。平均绩点3.70，在本专业223人中排名31。其中高等数学，C语言，Java，数据结构与算法等多门课程的绩点在4.5左右。
+&emsp;在我本科四年期间，我努力学习学校课程，成绩优异。平均绩点xxx，在本专业xxx人中排名xxx。其中高等数学，C语言，Java，数据结构与算法等多门课程的绩点在xxx左右。
 
-&emsp;在竞赛方面，我积极参加各类竞赛并获得许多奖项，比如在计算机设计大赛获得国家一等奖，在挑战杯“黑科技”专项赛获得国家一等奖，在美赛数学建模大赛中获得Meritorious 等等。但最令我最深刻的是电子设计大赛的无人机项目，它虽然没有获奖，但在为期一年的准备中，我从中学到了许多计算机方面知识。我擅长使用C或者C++在MCU以及嵌入式Linux系统上进行项目的开发。我对使用Linux有丰富的经验，我在云服务器上部署了我的个人博客。此外，我还擅长使用Python脚本，网络爬虫和网络API接口调用。在我参加数学建模期间，我常用Matlab来验证我们的模型。我还了解过其他的一些编程语言，如前端三件套，Java，lisp函数式编程等等。我觉得我的学习领域是比较广泛的。
+&emsp;在竞赛方面，我积极参加各类竞赛并获得许多奖项，比如在计算机设计大赛获得国家一等奖，在挑战杯“黑科技”专项赛获得国家一等奖，在美赛数学建模大赛中获得Meritorious 等等。我从中学到了许多计算机方面知识。我擅长C/C++，以及Linux系统上进行项目的开发。我对使用Linux有丰富的经验，我在云服务器上部署了我的个人博客。此外，我还擅长使用Python脚本，网络爬虫和网络API接口调用。在我参加数学建模期间，我常用Matlab来验证我们的模型。我还了解过其他的一些编程语言，如前端三件套，Java，lisp函数式编程等等。我觉得我的学习领域是比较广泛的。
 
-&emsp;除了学习之外，我经常参与社团活动。我在学院科学技术协会中担任计算机部门的讲师与副主席各一年。我负责的工作有，为新部员讲授计算机知识的工作，管理实验室秩序的工作，参与学院的迎新工作以及作为代表参与老师召开的社团会议。
+&emsp;除了学习之外，我经常参与社团活动。我在xxxxx担任xxx多久。我负责的工作有，管理实验室秩序的工作，参与学院的迎新工作以及作为代表参与老师召开的社团会议。
 
 &emsp;我对研究生期间的规划是：在研一期间，我会继续努力学习学校课程，在此基础上，拓展关于网络安全方面的知识。我会确定好研究方向并时刻关注研究领域的前沿动态，为将来的科研工作打下坚实的基础。在研二期间，我将开始准备我的毕业论文，我会努力找到一个具有创新性的研究点，并对此进行深入的学习。在研三时，我将尽我最大的努力做出有创新性的研究成果并完成好我的毕业论文。
 
-&emsp;如果有机会的话，我希望读博进行深造。在此以后，我想要留高校任教，我希望我能够在科研领域有所成就。
+&emsp;如果有机会的话，我希望读博进行深造，我希望我能够在科研领域有所成就。
 
-&emsp;谢谢老师们的聆听！！！
+&emsp;谢谢老师！！！
 
 # 一些问答题
 
@@ -79,32 +74,30 @@ tags:
   > I love learning and have a strong learning ability, I am interested in many fields of knowledge, that's why I learn knowledge very fast. I think this is my greatest strength. For a field that I don't like, it may be difficult for me to accept and learn knowledge in this field. This is also my biggest weakness, but I often try my best to overcome this weakness.
 
 -  "What is your greatest strength"?" ("你最突出的优点是什么?")
-
-  > I love learning and have a strong learning ability, I am interested in many fields of knowledge, that's why I learn knowledge very fast. I think this is my greatest strength.
+	> I love learning and have a strong learning ability, I am interested in many fields of knowledge, that's why I learn knowledge very fast. I think this is my greatest strength.
 
 -  "What is your greatest weakness?"("你最大的弱点是什么?")
-
-  > For a field that I don't like, it may be difficult for me to accept and learn knowledge in this field. This is also my biggest weakness, but I often overcome this weakness.
+	> For a field that I don't like, it may be difficult for me to accept and learn knowledge in this field. This is also my biggest weakness, but I often overcome this weakness.
 
 -  "What would you like to be doing five years after graduation?"("毕业5年后你的计划")
 
-  > I want to get a Ph.D. After that, I will stay in the university to become a teacher, I hope to be able to achieve academically and pass on my knowledge to students.
+	> I want to get a Ph.D. After that, I will stay in the university to become a teacher, I hope to be able to achieve academically and pass on my knowledge to students.
 
 - ”How do you feel about your progress to date?“("对于你至今所取得的进步你是怎样看的?")
 
-  > I think it is due to the support of my parents, the help of my teachers and the efforts of myself. My achievements are negligible, and I will continue to work hard during my postgraduate.
+  	> I think it is due to the support of my parents, the help of my teachers and the efforts of myself. My achievements are negligible, and I will continue to work hard during my postgraduate.
 
 - ”What has been your greatest accomplishment?“(”你目前取得最大的成就是什么?“)
 
-  > I've been close to postgraduate recommendation twice, but failed. After that, I didn't choose to give up, and I still insisted on taking the postgraduate entrance examination. I think it's probably my greatest achievement and the one thing I do that gives me the most satisfaction.
+  	> I've been close to postgraduate recommendation twice, but failed. After that, I didn't choose to give up, and I still insisted on taking the postgraduate entrance examination. I think it's probably my greatest achievement and the one thing I do that gives me the most satisfaction.
 
 -  ”What are some of the things you find difficult to do?"("对你来说困难的事有哪些?")
 
-  > I think the hardest thing for me is forcing me to study a field I don't like, but I will try my best to overcome it, such as setting learning goals and so on.
+  	> I think the hardest thing for me is forcing me to study a field I don't like, but I will try my best to overcome it, such as setting learning goals and so on.
 
 - ”Describe your best friend and what he or she does for a living.”("描述你最好的朋友和他是如何生活的。")
 
-  > My best friend is very friendly and he has qualified for postgraduate recommendation. Therefore, he is the most comfortable person in our dormitory. But he often helps us when we are busy, and I really appreciate him very much.
+  	> My best friend is very friendly and he has qualified for postgraduate recommendation. Therefore, he is the most comfortable person in our dormitory. But he often helps us when we are busy, and I really appreciate him very much.
 
 - ”What is the worst thing you have heard about our university?”("关于我们学校你听过最糟糕的事是什么?")
 
@@ -116,7 +109,7 @@ tags:
 
 -  ”Are you a happy person?"("你是一个快乐的人吗?")
 
-  > Of course, I often feel happy because I'm a pretty optimistic person. I love watching talk shows, it makes me happy.
+  	> Of course, I often feel happy because I'm a pretty optimistic person. I love watching talk shows, it makes me happy.
 
 - ”If you failed this time what will you do in the near future?"("如果这次你失败了,在不久的将来你会怎样做?")
 
@@ -136,7 +129,7 @@ tags:
 
 -  ”What is your impression of Nanjing? ("你对南京的印象如何?")
 
-  > Nanjing has a long history. After many years, it still stands tall in the long river of history. It's beautiful, magical, and spectacular. I like Nanjing very much.
+  	> Nanjing has a long history. After many years, it still stands tall in the long river of history. It's beautiful, magical, and spectacular. I like Nanjing very much.
 
 - describe your character/What kind of person do you think you are?("描述你的性格")
 
@@ -146,7 +139,7 @@ tags:
 
 关键词：graduation project
 
-&emsp;My graduation project is visual multi-terminal system communication and encryption algorithm design. The whole system is divided into three layers, the upper layer is the main control system, the middle is the terminal system, and the bottom layer is the vehicle. My task is to design an encryption algorithm and a set of common data specifications, and verify them on a platform. I am currently studying the existing papers.
+&emsp;My graduation project is xxxxx. The whole system is divided into three layers, the upper layer is xxxx the middle is xxxx, and the bottom layer is xxxx. My task is to design xxxx and verify them on a platform. I am currently studying the existing papers.
 
 ## 我本专业怎么样
 
@@ -226,13 +219,13 @@ I'm very sorry. Ashamed to say, I don't know how to answer this question. May I 
 
 # 英文自我介绍
 
-&emsp;Hello, professors, my name is Liang Minzhi. I majored in electronic science and technology at Nanjing University of Posts and Telecommunications. I am very happy to participate in this interview.
+&emsp;Hello, professors, my name isxxx. I majored in xxxxx. I am very happy to participate in this interview.
 
-&emsp;During my undergraduate, I worked hard at school and achieved excellent results. My GPA is 3.7, ranking 31 out of 223 in our major. The grade point of many courses such as advanced mathematics, C language, Java, data structure and algorithm is around 4.5.
+&emsp;During my undergraduate, I worked hard at school and achieved excellent results. My GPA is xxx, ranking xxx out of xxx in our major. The grade point of many courses such as advanced mathematics, C language, Java, data structure and algorithm is around xxx.
 
-&emsp;I have actively participated in competitions and won many awards, such as the First Prize in the computer contest, the M Prize in the Mathematical Contest In Modeling and so on. But what impresses me the most is a UAV project. I learned a lot from it during the one-year preparation. I am skilled in C or C++ for MCU and Linux systems. I deploy my blog on a cloud serve. Additionally, I am good at Python and web API calls. I often used Matlab to verify our models in mathematical modeling.
+&emsp;I have actively participated in competitions and won many awards, such as the First Prize in the computer contest, the M Prize in the Mathematical Contest In Modeling and so on. I am skilled in C/C++ and Linux systems. I deploy my blog on a cloud serve. Additionally, I am good at Python and web API calls. I often used Matlab to verify our models in mathematical modeling.
 
-&emsp;In addition to studying, I serve as a lecturer and vice-chairman of the computer department in Association for Science and Technology. I teach computer skills to new members, manage the lab, and represent the club at meetings led by teachers.
+&emsp;In addition to studying, I serve as a lecturer and vice-chairman of the computer department in Association for Science and Technology. I managed the lab, and represent the club at meetings led by teachers.
 
 &emsp;In the first year of postgraduate, I will continue to study hard and expand my knowledge about cyber security, I will determine the research direction and follow the frontier trends. In the second year, I will start to prepare my graduation thesis, find an innovative point and conduct in-depth research. Finally, I will make excellent results and complete my graduation thesis. If possible, I would choose to study for a Ph.D.
 

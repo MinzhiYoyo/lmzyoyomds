@@ -1,7 +1,7 @@
 ---
 title: 2023年东网CPP题目回忆版本
 date: 2023-07-28 19:37:30.863
-updated: 2024-02-27 15:34:03.342
+updated: 2024-03-21 23:30:00.129
 url: /archives/kaoyancpp2023
 categories: 
 - 考研
@@ -302,11 +302,11 @@ void bubble(int *arr, int size){
 			if(arr[j] > arr[j+1]){
 				int temp = arr[j];
 				arr[j] = arr[j+1];
-				arr[j+1] = arr[j];
+				arr[j+1] = temp;
 				flag = true;
 			}
-			______【4】______ // 设空
 		}
+        ______【4】______ // 设空
 	}
 }
 
@@ -610,11 +610,11 @@ void bubble(int *arr, int size){
 			if(arr[j] > arr[j+1]){
 				int temp = arr[j];
 				arr[j] = arr[j+1];
-				arr[j+1] = arr[j];
+				arr[j+1] = temp;
 				flag = true;
 			}
-			if(!flag) return; // 设空
 		}
+		if(!flag) return; // 设空
 	}
 }
 
