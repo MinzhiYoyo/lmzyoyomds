@@ -286,7 +286,10 @@ pki/private/server.key # 服务端的私钥
 pki/dh.pem # dh算法文件
 ta.key
 
-# 客户端需要的文件，拷贝到linux的/etc/openvpn/client或者windows的./config/或者C:\\User\<用户名>\OpenVPN\(其中./表示安装目录)
+# linux客户端需要的文件，拷贝到linux的/etc/openvpn/client
+# windows下面需要把client.conf改成client.ovpn
+# windows客户端（OpenVPN GUI这个）拷贝到C:\\User\<用户名>\OpenVPN\，或者可以通过 打开GUI界面->高级 查看具体是哪个目录
+# windows客户端（OpenVPN Connect这个），打开主界面即可导入文件，非常方便
 pki/ca.crt # ca证书，包含ca的公钥
 pki/issued/client.crt # 客户端证书，包含客户端的公钥
 pki/private/client.key # 客户端私钥
@@ -302,6 +305,16 @@ ta.key
 
 # 至于为什么客户端不需要服务端的证书（或公钥），因为连接的时候会交换各自的证书给对方
 ```
+
+8.   创建用户及用户组
+
+```shell
+# 由于在配置中选择了不用root执行，那么就需要创建`vpnuser`这个用户及用户组
+groupadd vpnuser # 创建用户组
+useradd -m vpnuser -g vpnuser # 创建vpnuser这个用户，-m表示创建根目录（即`/home/vpnuser`），-g vpnuser表示加入到这个用户组
+```
+
+
 
 ## 生成配置文件
 
@@ -366,7 +379,7 @@ mute 10					# 重复消息的默认，重复的10条消息会写入log，重复�
 
 ## 启动服务
 
-`linux`的服务文件在`/lib/systemd/system/opencv-server@.service`和`/lib/systemd/system/opencv-client@.service`，在这两个文件中是指定了目录的。我们查看一下。
+`linux`的服务文件在`/lib/systemd/system/openvpn-server@.service`和`/lib/systemd/system/openvpn-client@.service`，在这两个文件中是指定了目录的。我们查看一下。
 
 ```shell
 # openvpn-server@.service
@@ -391,6 +404,19 @@ systemctl start openvpn-client@client.service # 配置文件必须是client.conf
 ```
 
 在`windows`下，直接启动`GUI`程序即可，把`ca.crt, client.crt, client.key, ta.key, client.conf`拷贝到`./config/`或者`C:\\User\<用户名>\OpenVPN\`下即可（`./`表示`openvpn`的安装目录），然后右键托盘图标并连接即可。
+
+
+
+# 错误处理
+
+服务端错误，可以通过下面文件查看
+
+```shell
+# 默认是：
+/etc/openvpn/server/*.log
+```
+
+
 
 # 参考文献
 
