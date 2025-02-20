@@ -183,6 +183,11 @@ create table [if not exists] `table_name` (  # 这里的反引号作用就是防
 engine=InnoDB  # 指定引擎使用InnoDB，默认不用管
 CHARACTER SET utf8mb4  # 指定数据集，默认和数据库用的一样的数据集
 COLLATE utf8mb4_general_ci; # 指定校验，默认和数据库用的一样的
+
+# 其中主键也可以写在列名后面
+create table `table_name` ( 
+    `col_name1` int unsigned primary key auto_increment # 设置主键
+);
 ```
 
 ## 删除表
@@ -249,193 +254,123 @@ MySQL的数据库其实是一种关系型数据库，何谓关系，即`一对�
 
 
 
-索引，`mysql`会允许对某一列标记为索引，可以理解成它在插入的时候就排序了，这样查找起来快多了。对于查远远大于增的表，这种方式是很不错的。对于主键是自动建立索引的，因为其是递增的，插入也是非常快的。
+索引，`mysql`会允许对某一列标记为索引，可以理解成它在插入的时候就排序了，这样查找起来快多了。对于查远远大于增的表，这种方式是很不错的。对于主键是自动建立索引的，因为其是递增的，插入也是非常快的。（索引在后面可以看到详细介绍）
 
-# 增
 
-最重要的一条命令`insert`
+
+# 事务
+
+事务就是将一条或者多条SQL语句封装在一起，所有SQL语句被成功执行，那么整个事务成功，有一条SQL语句执行失败，则事务失败，事务失败会回滚所有的SQL语句，可以把一个事务想象成一个原子操作。事务满足`ACID`性质，即原子性(Atomicity)、一致性(Consistency)、隔离性(Isolation)和持久性(Durability)。
+
+常见用途，在转账的时候就非常重要等。
 
 ```mysql
-insert into `table_name`  # 插入到表 table_name 中
-(`col_name1`, `col_name2`, `col_name3`, ..., `col_namei`)  # 列名（字段名），如果插入的是所有列，那么可以省略
-values
-(data_1_1, data_1_2, data_1_3, ..., data_1_4),  # 第一条数据，可以插入单条或多条数据
-(default, data_2_2, data_2_3, ..., data_2_4),  # 如果是自增数据，那么就可以使用 default 来保证数据自动增1，而不需要人为设置
-...
-(data_n_1, data_n_2, '2025-02-18', ..., 'this is string');  # 使用单引号或者双引号 '' 来插入字符串，最后一列不要加逗号
+begin [或 start transaction]; 开启一个事务
+
+SQL语句1;
+
+SQL语句2;
+
+savepoint <检查点名字>; 
+
+SQL语句3;
+
+SQL语句4;
+
+# 如果出错了，可以回滚整个事务或者回滚到某个检查点
+rollback; # 回滚整个事务
+
+rollback to savepoint <检查点名字>; # 回滚到某个检查点
+
+commit; # 如果发现没有出错，那么就可以提交了。
+
+
+# 回滚和提交往往需要在应用程序中自行判断
 ```
 
-增删改查中，增应该是最简单的，因为后面的删改都需要进行条件判断，而查则是最难的。
+# 索引
 
-# 删
+数据库往往使用`B`树或者`B+`树来作为存储结构的，而这两种树都有一个共同点，其键值`key`是排序的。在这两种数据结构中进行搜索的平均复杂度是$O(\log n)$，因此，可以设置表的某一列或者某几列作为这个`key`，那么这些列就是索引。当然，索引加速`SQL`语句的执行主要在于`WHERE`对索引进行过滤，所以建议把常用的过滤列设置成索引。索引由于增加了一个数据结构（树中节点要保存数据行的地址），所以需要消耗额外的存储空间，是一种典型的以空间换时间的做法。
 
-下面是删除的最基本语法
+## 普通索引
 
-```mysql
-delete from `database.table` # 所有的这种 `database.table` 可以写成 `table` 但是需要进入到数据库中
-where <条件>;     # 这里是条件，详细条件用法需要看后面
-
-# 比如下面：
-delete from `table` where id = 3;  # 删除 id 为 3 的那一行数据，这里是单个等号
-```
-
-# 改
-
-下面是更改的最基本用法
+1.   创建索引，以下是创建索引的几种方式
 
 ```mysql
-update `database.table`  # 使用哪张表
-set `col_name` = col_data  # 更新的数据
-where <条件>;  # 这里的条件详细用法看后面
-```
+create index <索引名字>
+on <表名字> (<列名字1> [ASC|DESC], <列名字2> [ASC|DESC], ...)  # 可使用多列来作为索引，默认是ASC排序
+;
 
-# 查
+# 上下两种方法都是在已有的表上面增加索引
 
-查应该是最复杂的用法，但是其实只涉及到一条最基础的命令`select ... from table ...;` 难点在于两个省略号，内容太多了。
+alter 
+	table <表名字> 
+add index <索引名字> 
+	(<列名字1> [ASC|DESC], <列名字2> [ASC|DESC], ...)
+;
 
-接下来还是以[测试用例]( https://gitee.com/eggtoopain/my-sql-introductory-courseware/blob/master/Egg_database.sql)来一步步学习，这个样例一共两张表，创建表代码如下：
-
-```mysql
-CREATE TABLE IF NOT EXISTS Covid_total (
-    `Country_id` INT NOT NULL AUTO_INCREMENT,
-    `Country` VARCHAR(22) CHARACTER SET utf8,
-    `Continent` VARCHAR(17) CHARACTER SET utf8,
-    `Population` INT,
-    `Total_cases` INT,
-    `Total_deaths` INT,
-    `Total_recovered` INT,
-    `Total_active` INT,
-    PRIMARY KEY (Country_id)
-);
-
-CREATE TABLE IF NOT EXISTS Covid_month (
-    `Record_id` INT NOT NULL AUTO_INCREMENT,
-    `Date` DATETIME,
-    `Country` VARCHAR(32) CHARACTER SET utf8,
-    `Confirmed` INT,
-    `Deaths` INT,
-    `Recovered` INT,
-    `Active` INT,
-    `New_cases` INT,
-    `New_deaths` INT,
-    `New_recovered` INT,
-    `Continent` VARCHAR(21) CHARACTER SET utf8,
-    PRIMARY KEY (Record_id)
+# 下面是在创建表的时候指定索引
+create table <表名字> (
+	<列名字1> <数据类型> [约束],
+    <列名字2> <数据类型> [约束],
+    ...
+    index <索引名字> (<列名字1> [ASC|DESC], <列名字2> [ASC|DESC], ...)
 );
 ```
 
-
-
-***Ps***:表的来源是，[技术蛋老师](https://www.bilibili.com/video/BV16D4y167TT/?spm_id_from=333.1391.0.0&vd_source=0a579f07fbfd2a261b953858b74e9bfb)
-
-## 简单查询
+2.   删除索引
 
 ```mysql
-# 查询所有的，这个速度非常慢
-select * from Covid_total; 
-
-# 只查询这两列，内容多，速度也慢
-select 
-	`Country_id`,`Total_cases` 
-from Covid_total; 
-
-# 相比于上一句，仅仅是显示重命名了而已，显示 c_id 和 tc
-select 
-	`Country_id` as `c_id`,  # 显示 c_id 而不是 Country_id
-	`Total_cases` as `tc` 
-from Covid_total; 
-
-# distinct 是去重，查询结果均相同的去重，比如下面 所有 Continent = Country 的只显示一个
-select distinct 
-	`Continent`, `Country` 
-from Covid_total; 
-
-# 对查询结果排序，ASC是升序，DESC是降序
-select 
-	`Country_id`, `Country`, `Total_deaths` 
-from Covid_total 
-order by 
-	`Total_deaths` ASC;
-# 还可以多列排序，即，从第一个条件开始排序一直到最后一个条件
-select 
-	`Country_id`, `Country`, `Total_deaths` 
-from Covid_total 
-order by 
-	`Total_deaths` ASC, 
-	`Country_id` DESC; # 先按照 Total_deaths 升序，再按照 Country_id 降序
-```
-
-## 简单条件查询
-
-支持`=`,`!=`,`<`,`>`,`>=`,`<=`,`and`,`or`,`not`,`between<val1>and<val2>(val1<=val<=val2)`,`IN`,`IS`,`LIKE`等符号
-
-```mysql
-# 条件查询应该是如下形式，注：加上了之前的用法，之前的用法不是必须的，只是看看一个 select 是怎么一步步增加的
-select [distinct] 
-	<col_name> [as `new_name`], ... 
-from `table_name`
-where       # 这一部分才是条件查询
-	<条件>   # 这是条件
-[order by
-	<排序字段>]
+drop index <索引名字> on <表名>;
+# 或者
+alter 
+	table <表名字>
+drop index <索引名字>
 ;
 ```
 
-1.   基本的比较运算符用法以及逻辑运算符用法：
+## 唯一索引
+
+如果索引的值重复的越少，那么查询效率应该是越高的，因此，唯一索引就是这么个约束。唯一索引要求，该列的值必须唯一。
+
+1.   创建唯一索引
 
 ```mysql
-# 1.1 普通比较
-select 
-	`Country_id`, `Country`, `Total_deaths` 
-from Covid_total 
-where 
-	`Country_id` <= 100  # 只看 id 不大于 100 的数据
-; 
+create unique index <索引名字>
+on <表名字> (<列名字1> [ASC|DESC], <列名字2> [ASC|DESC], ...)
+;
 
-# 1.2 逻辑运算符
-select 
-	`Country_id`, `Country`, `Total_deaths` 
-from Covid_total 
-where 
-	`Country_id` <= 100  # 只看 id 不大于 100 的数据
-	and `Total_deaths`  between 9252 and 9889  # 而且只查看 Total_deaths 在 [9252, 9889]之间的
-; # 如果 between  and 的两个数字大小顺序错了不会报错，只会 没结果
+# 上下两种方法都是在已有的表上面增加唯一索引
 
-# 1.3 is 比较
-select 
-	`Country_id`, `Country`, `Total_deaths` 
-from Covid_total
-where
-	`Total_deaths` is null  # 查询为 null 的
-; 
+alter 
+	table <表名字> 
+add constraint <索引名字> unique
+	(<列名字1> [ASC|DESC], <列名字2> [ASC|DESC], ...)
+;
 
-# 1.4 in 运算
-select 
-	`Country_id`, `Country`, `Total_deaths` 
-from Covid_total
-where
-	`Total_deaths` IN (9252, 9889)  # 枚举查询，这样会比较慢，更加推荐使用 = 查询，查询等于 9252 和 9889 的
-; 
-
-
+# 下面是在创建表的时候指定唯一索引
+create table <表名字> (
+	<列名字1> <数据类型> [约束],
+    <列名字2> <数据类型> [约束],
+    ...
+    constraint <索引名字> unique (<列名字1> [ASC|DESC], <列名字2> [ASC|DESC], ...)
+);
 ```
 
-2.   `like`查询，这其实是模糊搜索，即使用通配符`_`和`%`：`_`表示任意单个字符，`%`任意多个字符
+2.   删除唯一索引
 
 ```mysql
-select 
-	`Country_id`, `Country`, `Total_deaths` 
-from Covid_total
-where
-	`Total_deaths` like '9___'  # 注意使用单引号包裹，而且这个不仅可以查询字符串，也可以查询数字，比如查询 9xxx 的数字
-; 
+drop index <索引名字> on <表名>;
+# 或者
+alter 
+	table <表名字>
+drop constraint <索引名字>
+;
+```
 
+## 查看索引
 
-select 
-	`Country_id`, `Country`, `Total_deaths` 
-from Covid_total
-where
-	[binary] `Country` like 'g%'  # 查询 G 开头的国家，默认不区分大小写的，除非在前面加上 binary，又或者建表的时候在列属性那里加上 binary
-; 
+```mysql
+show index from <表名>;
 ```
 
